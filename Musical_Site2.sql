@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS Genre(
 	id SERIAL primary key,
-	name VARCHAR(60) not null
+	name VARCHAR(60) unique not null
 );
 
 CREATE TABLE IF NOT EXISTS Artist(
@@ -11,19 +11,19 @@ CREATE TABLE IF NOT EXISTS Artist(
 CREATE TABLE IF NOT EXISTS Album(
 	id SERIAL primary key,
 	name VARCHAR(60) not null,
-	release_date VARCHAR(10) not null
+	release_date DATE not null
 );
 
 CREATE TABLE IF NOT EXISTS Track(
-	id SERIAL primary key references Album(id),
+	id SERIAL primary key,
 	name VARCHAR(60) not null,
-	duration VARCHAR(10) not null
+	duration INTEGER not null
 );
 
 CREATE TABLE IF NOT EXISTS Collection(
 	id SERIAL primary key,
 	name VARCHAR(60) not null,
-	release_date VARCHAR(10) not null
+	release_date DATE not null
 );
 
 CREATE TABLE IF NOT exists genre_artist(
